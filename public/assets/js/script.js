@@ -4,14 +4,14 @@ const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const countdown = document.getElementById('countdown');
 const year = document.getElementById('year');
-const loading = document.getElementById('loading');
 
-const now = new Date();
-const eventDate = new Date (2021, 06, 15);
 
 
 // Update countdown time
 function updateCountdown() {
+  const now = new Date();
+  const eventDate = new Date (2021, 06, 15);
+
   const currentTime = now.getTime();
   const eventTime = eventDate.getTime();
   const diff = eventTime - currentTime;
@@ -27,10 +27,6 @@ function updateCountdown() {
   minutes.innerHTML = m < 10 ? '0' + m : m;
   seconds.innerHTML = s < 10 ? '0' + s : s;
 
-
-
 }
 
-
-// Run every second
-setTimeout(updateCountdown, 1000);
+setInterval(updateCountdown, 1000);
